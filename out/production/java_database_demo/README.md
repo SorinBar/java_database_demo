@@ -16,9 +16,6 @@ https://docs.docker.com/desktop/install/windows-install/
 * https://www.jetbrains.com/help/idea/working-with-module-dependencies.html#add-a-new-dependency
 * Select Dependencies\postgresql-42.7.3.jar
 
-### Bonus: Install Database Visualizer
-https://dbeaver.io/download/
-
 ## Run
 ### Step 1: Start Docker Desktop
 - Search for Docker Desktop in  Windows Start Menu

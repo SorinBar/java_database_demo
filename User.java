@@ -1,12 +1,16 @@
 public class User {
-    public String id;
+    public long id;
     public String email;
     public String password;
 
-    public User(String id, String email, String password) {
-        this.id = id;
+    public User(String email, String password) {
         this.email = email;
         this.password = password;
+    }
+
+    public User(long id, String email, String password) {
+        this(email, password);
+        this.id = id;
     }
 
     @Override

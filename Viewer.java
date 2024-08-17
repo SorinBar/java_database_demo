@@ -1,4 +1,5 @@
 import java.sql.*;
+import java.util.ArrayList;
 
 public class Viewer {
     public static void main(String[] args) {
@@ -20,30 +21,18 @@ public class Viewer {
             pstmt = conn.prepareStatement(retrieveUserSQL);
             rs = pstmt.executeQuery();
 
-            if (rs.next()) {
-                int id = rs.getInt("id");
-                String email = rs.getString("email");
-                String password = rs.getString("password"); // In practice, never print raw passwords
-
-                System.out.println("User retrieved:");
-                System.out.println("ID: " + id);
-                System.out.println("Email: " + email);
-                System.out.println("Password: " + password); // Replace with secure handling
-            } else {
-                System.out.println("User not found.");
+            ArrayList<User> users = new ArrayList<>();
+            while (rs.next()) {
+                users.add(new User(
+                        rs.getLong("id"),
+                        rs.getString("email"),
+                        rs.getString("password")));
             }
-            if (rs.next()) {
-                int id = rs.getInt("id");
-                String email = rs.getString("email");
-                String password = rs.getString("password"); // In practice, never print raw passwords
-
-                System.out.println("User retrieved:");
-                System.out.println("ID: " + id);
-                System.out.println("Email: " + email);
-                System.out.println("Password: " + password); // Replace with secure handling
-            } else {
-                System.out.println("User not found.");
+            System.out.println("[");
+            for (User user : users) {
+                System.out.println(user + ",");
             }
+            System.out.println("]");
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -51,7 +40,6 @@ public class Viewer {
             try {
                 if (rs != null) rs.close();
                 if (pstmt != null) pstmt.close();
-                if (stmt != null) stmt.close();
                 if (conn != null) conn.close();
             } catch (SQLException e) {
                 e.printStackTrace();
