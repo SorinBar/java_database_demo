@@ -1,4 +1,4 @@
-# java_database_demo
+# Java Database Demo
 
 ## Setup
 ### Step 1: Install Docker
