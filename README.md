@@ -14,7 +14,7 @@ https://docs.docker.com/desktop/install/windows-install/
     
 ### Step 3: Add JDBC jar dependency
 * https://www.jetbrains.com/help/idea/working-with-module-dependencies.html#add-a-new-dependency
-* Select dependencies\postgresql-42.7.3.jar
+* Select Dependencies\postgresql-42.7.3.jar
 
 ### Bonus: Install Database Visualizer
 https://dbeaver.io/download/
